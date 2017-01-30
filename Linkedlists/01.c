@@ -7,6 +7,16 @@ typedef struct n
   struct n * next;
 } node;
 
+/* Print Linked list values */
+void showList(node * list){
+  int i = 1;
+  while( list != NULL){
+    printf("#%d. node, data: %d at pointed: %p, and points to %p\n", i, list->data, list, list->next);
+    list = list->next;
+    i++;
+  }
+}
+
 int main(){
 
   node * root;
@@ -21,19 +31,13 @@ int main(){
   root->next->next->data = 30;
   root->next->next->next = NULL;
 
-  /* Print Linked list values */
-  node *iter = root;
-  int i = 0;
-  while(iter != NULL){
-    i++;
-    printf("#%d. node, data: %d at pointed: %p, and points to %p\n", i, iter->data, iter, iter->next);
-    iter = iter->next;
-  }
+  showList(root);
   return 0;
-  /*
-  -- Resulted as --
-  #1. node, data: 10 at pointed: 00031738, and points to 00031768
-  #2. node, data: 20 at pointed: 00031768, and points to 00031778
-  #3. node, data: 30 at pointed: 00031778, and points to 00000000
-  */
 }
+
+/*
+-- Resulted as --
+#1. node, data: 10 at pointed: 00031738, and points to 00031768
+#2. node, data: 20 at pointed: 00031768, and points to 00031778
+#3. node, data: 30 at pointed: 00031778, and points to 00000000
+*/
