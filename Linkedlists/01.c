@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct n{
+typedef struct n
+{
   int data;
-  n * next;
-};
-typedef n node;
+  struct n * next;
+} node;
 
 int main(){
 
